@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>条件分岐とループ</title>
+</head>
+<body>
+<div id="app">
+    <!-- {{ message }} -->
+    <span v-if="seen">
+        Now you see me
+    </span>
+</div>
+<div id="app-2">
+    <ol>
+        <li v-for="animal in animals">
+            {{ animal.text }}
+        </li>
+    </ol>
+</div>
+<script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
+<script>
+var app = new Vue({
+    el: '#app',
+    data: {
+        seen: true
+    }
+});
+var app2 = new Vue({
+    el: '#app-2',
+    data: {
+        animals: [
+            { text: '犬' },
+            { text: '猿' },
+            { text: '猫' }
+        ],
+    }
+});
+</script>
+</body>
+</html>
