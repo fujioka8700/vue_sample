@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vue.jsのサンプル</title>
+</head>
+<body>
+    <div id="app">
+        {{ message }} <!-- マスタッシュ記号 -->
+    </div>
+
+    <div id="app2"> <!-- Vue.jsで指定されたものだけ変わる。 -->
+        {{ message }}
+    </div>
+
+    <!--  Vue.jsのインストール -->
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.6.14/dist/vue.js"></script>
+    <script>
+        var app = new Vue({ // Vueクラスの定義。インスタンスの作成。
+            el: "#app2",    // elemantの略称。Vueが操作する対象となる要素。
+            data: {         // Vue.jsが扱う様々なデータを定義。
+                message: "ともすた" // messageの値を変更
+            }
+        });
+    </script>
+</body>
+</html>
