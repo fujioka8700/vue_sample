@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>属性の書き替え</title>
+    <style>
+        .error {
+            color: red;
+        }
+    </style>
+</head>
+<body>
+    <!-- マスタッシュ構文は、HTMLタグの中にのみ有効 -->
+    <!--
+    <div id="app">
+        <p class="{{ error_class }}">{{ error_class }}</p>
+    </div>
+    -->
+
+    <!-- bind:割り当てる VueでHTMLの要素を割り当てる -->
+    <!-- v-bindディレクティブは属性値を入れて、データを割り当てる -->
+    <div id="app">
+        <p v-bind:class="error_class">エラーです</p>
+
+        <!-- <img src="img_sample.jpg" alt="サンプル画像です"> -->
+        <img v-bind:src="img_src" alt="サンプル画像です">
+    </div>
+
+    <!--  Vue.jsのインストール -->
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.6.14/dist/vue.js"></script>
+    <script>
+        var app = new Vue({
+            el: "#app",
+            data: {
+                error_class: "abc",
+                img_src: "img_sample.jpg"
+            }
+        });
+    </script>
+</body>
+</html>
