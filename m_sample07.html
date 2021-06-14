@@ -4,25 +4,21 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ボタンを押したら、文字の順番変更</title>
+    <title>バインディング(要素の属性を結びつける)</title>
 </head>
 <body>
     <div id="app">
-        <p>{{ message }}</p>
+        <span v-bind:style="color">
+            おはようございます。今日はいい天気ですね^^
+        </span>
     </div>
 <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
 <script>
 const app = new Vue({
-    el: "#app",
+    el: '#app',
     data: {
-        message: 'Hello Vue!'
-    },
-});
-var app1 = new Vue({
-    el: "#app",
-    data: {
-        message: 'Hello Vue!'
-    },
+        color: 'color: #0099FF'
+    }
 });
 </script>
 </body>
