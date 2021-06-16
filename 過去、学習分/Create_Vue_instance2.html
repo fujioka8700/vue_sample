@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vue.jsのインストールと、最初のプログラム</title>
+</head>
+<body>
+    <div id="app">
+        <p>{{ a }}</p>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.6.14/dist/vue.js"></script>
+    <script>
+        var data = {
+            a: 1
+        };
+
+        var vm = new Vue({
+            el: "#app",
+            data: data
+        });
+
+        vm.a = 99;
+
+        console.log(vm.$data === data); // true
+        console.log(vm.$el === document.getElementById('app')); // true
+
+        // $watch はインスタンスメソッドです
+        vm.$watch('a', function(newValue, oldValue) {
+            // このコールバックは `vm.a` の値が変わる時に呼ばれます
+            console.log('a の値が変わりました');
+        });
+    </script>
+</body>
+</html>

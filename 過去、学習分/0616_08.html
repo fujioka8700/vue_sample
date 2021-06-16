@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>カスタム要素</title>
+</head>
+<body>
+    <!-- カスタム要素を使用する -->
+    <hello-element name="Tanaka"></hello-element>
+</body>
+<script>
+    class HelloElement extends HTMLElement {
+        // コンストラクタ
+        // 必ず親コンストラクタ super() を呼び出すこと。
+        // 属性値 _name を初期化
+        constructor() {
+            super();
+            this._name = null;
+        }
+
+        // 監視する属性名のリストを返却する
+        static get observedAttributes() {
+        return ["name"];
+        }
+
+        // 監視する属性が設定・変更された際に呼び出される
+        // _name 属性を変更し、レンダリングする
+        attributeChangedCallback(name, oldValue, newValue) {
+            this._name = newValue;
+            this._updateRendering();
+        }
+
+        // 要素が挿入された際に呼び出される
+        connectedCallback() {
+            this._updateRendering();
+        }
+
+        // name属性のゲッター
+        get name() {
+            return this._name;
+        }
+
+        // name属性のセッター
+        set name(v) {
+            this.setAttribute("name", v);
+        }
+
+        // レンダリング
+        // Hello, {name属性}! と表示する
+        _updateRendering() {
+            this.textContent = 'Hello, ' + this._name + '!';
+        }
+    }
+
+    // 上記で定義したクラスを用いて、カスタム要素 <hello-element> を定義する
+    customElements.define("hello-element", HelloElement);
+    </script>
+</body>
+</html>
