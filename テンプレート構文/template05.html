@@ -4,31 +4,28 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>属性</title>
+    <title>JavaScript 式の使用</title>
 </head>
 <body>
-    <!-- 属性の変更は v-bind で行う -->
-    <div id="app" v-bind:id="dynamicId">
+    <div id="app">
+        {{ number + 1 }}
     </div>
 
     <div id="app_2">
-        <!-- isButtonDisabledがnull,undefined,false → button要素に含めない -->
-        <button  v-bind:disabled="isButtonDisabled">ボタン</button>
+        {{ ok ? 'YES' : 'NO' }}
     </div>
-
     <script src="https://cdn.jsdelivr.net/npm/vue@2.6.14/dist/vue.js"></script>
     <script>
         var app = new Vue({
             el: "#app",
             data: {
-                dynamicId: 'change'
+                number: 1
             }
         });
-
         var app_2 = new Vue({
             el: "#app_2",
             data: {
-                isButtonDisabled: true
+                ok: true
             }
         });
     </script>

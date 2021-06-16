@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>引数</title>
+</head>
+<body>
+    <div id="app">
+        <a v-bind:href="url">yahoo.jp</a>
+        <button v-on:click="alert">警告</button>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.6.14/dist/vue.js"></script>
+    <script>
+        var app = new Vue({
+            el: "#app",
+            data: {
+                url: 'https://yahoo.jp'
+            },
+            methods: {
+                alert: function() {
+                    alert('警告します！');
+                }
+            },
+        });
+    </script>
+</body>
+</html>

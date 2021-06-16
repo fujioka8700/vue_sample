@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>動的引数</title>
+</head>
+<body>
+    <div id="app">
+        {{ message }}
+        <a v-on:click.once="doSomething">click</a>  <!-- clickするとdoSomethingを呼ぶ -->
+        <a v-on:[eventname]="doSomething">click</a>
+        <!-- ここに書かれている[eventName]が、動的引数 -->
+        <!-- eventNameの値をdataで設定することができる 今回でいうと値はclickとなる-->
+        <!-- なので 実際のページで見ると上と下どちらも同じように展開される。-->
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.6.14/dist/vue.js"></script>
+    <script>
+        var app = new Vue({
+            el: '#app',
+            data: {
+                message: "Hello Vue!",
+                eventname: "click" // こちらで eventName の値を設定
+            },
+            methods: {
+            // clickすると呼び出させれる
+            doSomething: function () {
+                this.message = this.message.split('').reverse().join('')
+            }
+        }
+    })
+    </script>
+</body>
+</html>

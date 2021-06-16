@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>動的引数</title>
+</head>
+<body>
+    <div id="app">
+        <!-- v-bind と v-on の省略記法 -->
+        <p :style="font_color">{{ message }}</p>
+        <button @[attributename]="doSomething"> ここを押してね </button>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.6.14/dist/vue.js"></script>
+    <script>
+        var app = new Vue({
+            el: '#app',
+            data: {
+                message: "Hello Vue!",
+                font_color: "color: red",
+                attributename: "click"
+            },
+            methods: {
+            doSomething: function () {
+                this.message = this.message.split('').reverse().join('');
+                this.font_color = "color: blue"
+            }
+        }
+    })
+    </script>
+</body>
+</html>
