@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>算出setter関数</title>
+</head>
+<body>
+    <div id="app">
+        {{ fullName }}
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.6.14/dist/vue.js"></script>
+    <script>
+        var vm = new Vue({
+            el: "#app",
+            data: {
+                firstName: 'Foo',
+                lastName: 'Bar',
+            },
+            computed: {
+                fullName: {
+                    // getter 関数
+                    get: function() {
+                        return this.firstName + ' ' + this.lastName
+                    },
+                    // setter 関数
+                    set: function(newValue) {
+                        var names = newValue.split(' ');
+                        this.firstName = names[0];
+                        this.lastName = names[names.length - 1];
+                    }
+                }
+            }
+        })
+    </script>
+</body>
+</html>
