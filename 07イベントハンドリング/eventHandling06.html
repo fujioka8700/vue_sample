@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>キー修飾子</title>
+</head>
+
+<body>
+    <div id="app">
+        <!-- エンターキーを押した時にアラートを表示 -->
+        <!-- キー修飾子は繋げて書くこともできる。 -->
+        <input type="text" v-on:keyup.enter.space="alert">
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.6.14/dist/vue.js"></script>
+    <script>
+        new Vue({
+            el: '#app',
+            methods: {
+                alert() {
+                    alert("アラート！");
+                }
+            }
+        })
+    </script>
+</body>
+
+</html>

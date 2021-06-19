@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>メソッドイベントハンドラ</title>
+</head>
+
+<body>
+    <div id="example-2">
+        <!-- `greet` は、あらかじめ定義したメソッドの名前 -->
+        <button v-on:click="greet">Greet</button>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.6.14/dist/vue.js"></script>
+    <script>
+        var example2 = new Vue({
+            el: '#example-2',
+            data: {
+                name: 'Vue.js'
+            },
+            // `methods` オブジェクトの下にメソッドを定義する
+            methods: {
+                greet: function (event) {
+                    // メソッド内の `this` は、 Vue インスタンスを参照します
+                    alert('Hello ' + this.name + '!')
+                    // `event` は、ネイティブ DOM イベントです
+                    if (event) {
+                        alert(event.target.tagName)
+                    }
+                }
+            }
+        })
+
+        // JavaScript からメソッドを呼び出すこともできます
+        example2.greet() // => 'Hello Vue.js!'
+    </script>
+</body>
+
+</html>
