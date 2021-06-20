@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>フォーム入力バインディング - 値のバインディング</title>
+</head>
+
+<body>
+    <div id="app">
+        <!-- チェックされたとき、`picked` は文字列"a"になります -->
+        <input type="radio" v-model="picked" value="a">
+        {{ picked }}
+
+        <!-- `toggle` は true かまたは false のどちらかです -->
+        <input type="checkbox" v-model="toggle">
+        {{ toggle }}
+
+        <!-- 最初のオプションが選択されたとき、`selected` は文字列"abc"です -->
+        <select v-model="selected">
+            <option value="abc">ABC</option>
+        </select>
+        {{ selected }}
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.6.14/dist/vue.js"></script>
+    <script>
+        var app = new Vue({
+            el: '#app',
+            data: {
+                picked: '',
+                toggle: '',
+                selected: ''
+            }
+        })
+    </script>
+</body>
+
+</html>
