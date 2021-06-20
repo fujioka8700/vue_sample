@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>コンポーネントの登録 グローバル登録</title>
+</head>
+
+<body>
+    <div id="app">
+        <component-a></component-a>
+        <component-b></component-b>
+        <component-c></component-c>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.6.14/dist/vue.js"></script>
+    <script>
+        // コンポーネントを グローバル登録。
+        Vue.component('component-a', {
+            data: function () {
+                return {
+                    count: 0
+                }
+            },
+            template: '<button v-on:click="count++">A: {{ count }}</button>'
+        });
+        Vue.component('component-b', {
+            template: '<p>bの文章です</p>'
+        });
+        Vue.component('component-c', {
+            template: '<h1>cの文章です</h1>'
+        });
+
+        // 3 つのコンポーネントが適用される。
+        var app = new Vue({
+            el: "#app"
+        });
+    </script>
+</body>
+
+</html>
