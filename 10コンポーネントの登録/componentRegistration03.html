@@ -5,36 +5,44 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>コンポーネントの登録 グローバル登録</title>
+    <title>コンポーネントの登録 ローカル登録 その2</title>
 </head>
 
 <body>
     <div id="app">
         <component-a></component-a>
-        <component-b></component-b>
         <component-c></component-c>
     </div>
 
     <script src="https://cdn.jsdelivr.net/npm/vue@2.6.14/dist/vue.js"></script>
     <script>
-        // コンポーネントを グローバル登録。
-        Vue.component('component-a', {
+        var ComponentA = {
             data: function () {
                 return {
                     count: 0
                 }
             },
             template: '<button v-on:click="count++">A: {{ count }}</button>'
-        });
-        Vue.component('component-b', {
-            template: '<p>bの文章です</p>'
-        });
-        Vue.component('component-c', {
-            template: '<h1>cの文章です</h1>'
-        });
+        };
 
+        var ComponentB = {
+            template: '<p>bの文章です</p>'
+        };
+
+        var ComponentC = {
+            components: {
+                'component-b': ComponentB,
+            },
+            template: '<h1><component-b></component-b><h2>'
+        };
+
+        // コンポーネントをローカル登録。
         var app = new Vue({
-            el: "#app"
+            el: "#app",
+            components: {
+                'component-a': ComponentA,
+                'component-c': ComponentC
+            }
         });
     </script>
 </body>

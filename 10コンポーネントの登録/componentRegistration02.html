@@ -17,24 +17,30 @@
 
     <script src="https://cdn.jsdelivr.net/npm/vue@2.6.14/dist/vue.js"></script>
     <script>
-        Vue.component('component-a', {
+        var ComponentA = {
             data: function () {
                 return {
                     count: 0
                 }
             },
             template: '<button v-on:click="count++">A: {{ count }}</button>'
-        });
-        Vue.component('component-b', {
-            template: '<p>bの文章です</p>'
-        });
-        Vue.component('component-c', {
-            template: '<h1>cの文章です</h1>'
-        });
+        };
 
-        // コンポーネントをグローバル登録。
+        var ComponentB = {
+            template: '<p>bの文章です</p>'
+        };
+
+        var ComponentC = {
+            template: '<h1>cの文章です</h1>'
+        };
+
+        // コンポーネントをローカル登録。
         var app = new Vue({
-            el: "#app"
+            el: "#app",
+            components: {
+                'component-a': ComponentA,
+                'component-b': ComponentB,
+            }
         });
     </script>
 </body>
