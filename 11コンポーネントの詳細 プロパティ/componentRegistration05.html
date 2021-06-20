@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>コンポーネントのプロパティ 配列の受け渡し</title>
+</head>
+
+<body>
+    <div id="app">
+        <!-- HTML 内ではケバブケース -->
+        <blog-post v-bind:comment-ids="post.commentIds"></blog-post>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.6.14/dist/vue.js"></script>
+    <script>
+        Vue.component('blog-post', {
+            // JavaScript 内ではキャメルケース
+            props: { commentIds: Array },
+            template: '<ul><li v-for="commentid in commentIds">{{ commentid }}</li></ul>'
+        })
+
+        var app = new Vue({
+            el: "#app",
+            data: {
+                post: {
+                    commentIds : [234, 266, 273]
+                }
+            }
+        });
+    </script>
+</body>
+
+</html>
