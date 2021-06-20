@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>静的あるいは動的なプロパティの受け渡し</title>
+</head>
+
+<body>
+    <div id="app">
+        <!-- HTML 内ではケバブケース -->
+        <blog-post v-bind:title="post.title + ' by' + post.author.name"></blog-post>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.6.14/dist/vue.js"></script>
+    <script>
+        Vue.component('blog-post', {
+            // JavaScript 内ではキャメルケース
+            props: {
+                title: String,
+                likes: Number,
+                isPublished: Boolean,
+                commentIds: Array,
+                author: Object,
+                callback: Function,
+                contactsPromise: Promise // or any other constructor
+            },
+            template: '<h3>{{ title }}</h3>',
+        })
+
+        var app = new Vue({
+            el: "#app",
+            data: {
+                post: {
+                    title: '動的なプロパティ',
+                    author: {
+                        name: '田中太郎'
+                    }
+                }
+            }
+        });
+    </script>
+</body>
+
+</html>
