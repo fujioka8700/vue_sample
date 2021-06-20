@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>プロパティを使用した子コンポーネントへのデータの受け渡し</title>
+</head>
+
+<body>
+    <div id="app">
+        <button-counter></button-counter>
+        <button-counter></button-counter>
+        <button-counter></button-counter>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.6.14/dist/vue.js"></script>
+    <script>
+        Vue.component('button-counter', {
+            data: function () {
+                return {
+                    count: 0
+                }
+            },
+            // data は関数でなければならない
+            // data: {
+            //     count: 0
+            // },
+            template: '<button v-on:click="count++">You clicked me {{ count }} times.</button>'
+        });
+
+        var app = new Vue({
+            el: "#app"
+        });
+    </script>
+</body>
+
+</html>
