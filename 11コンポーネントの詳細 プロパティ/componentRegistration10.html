@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>プロパティのバリデーション</title>
+</head>
+
+<body>
+    <div id="app">
+        <my-component
+        v-bind:prop-a="30"
+        v-bind:prop-b="200"
+        prop-c="Hello"
+        v-bind:prop-e="{ message: 'Vue best!' }"
+        prop-f="success"
+        ></my-component>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.6.14/dist/vue.js"></script>
+    <script>
+        Vue.component('my-component', {
+            props: {
+                // 基本的な型の検査 (`null` と `undefined` は全てのバリデーションにパスします)
+                propA: Number,
+                // 複数の型の許容
+                propB: [String, Number],
+                // 文字列型を必須で要求する
+                propC: {
+                    type: String,
+                    required: true
+                },
+                // デフォルト値つきの数値型
+                propD: {
+                    type: Number,
+                    default: 100
+                },
+                // デフォルト値つきのオブジェクト型
+                propE: {
+                    type: Object,
+                    // オブジェクトもしくは配列のデフォルト値は
+                    // 必ずそれを生み出すための関数を返す必要があります。
+                    default: function () {
+                        return { message: 'Vue awesome' }
+                    }
+                },
+                propF: {
+                    validator: function (value) {
+                    // プロパティの値は、必ずいずれかの文字列でなければならない
+                        return ['success', 'warning', 'danger'].indexOf(value) !== -1
+                    }
+                }
+            },
+            template: '<ul><li>propA:{{ propA }}</li><li>propB:{{ propB }}</li><li>propC:{{ propC }}</li><li>propD:{{ propD }}</li><li>propE:{{ propE.message }}</li><li>propF:{{ propF }}</li></ul>'
+        });
+
+        var app = new Vue({
+            el: "#app"
+        });
+    </script>
+</body>
+
+</html>
