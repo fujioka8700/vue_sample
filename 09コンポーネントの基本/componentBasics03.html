@@ -9,31 +9,87 @@
 </head>
 
 <body>
-    <div id="app">
+    <!-- コンポーネントの基本 -->
+    <!-- <div id="app">
         <button-counter></button-counter>
         <button-counter></button-counter>
         <button-counter></button-counter>
+        <blog-post title="ブログ"></blog-post>
+        <blog-post title="日記"></blog-post>
+        <blog-post title="雑記"></blog-post>
+    </div> -->
+
+    <!-- プロパティを使用した子コンポーネントへのデータの受け渡し -->
+    <!-- <div id="blog-post-demo">
+        <blog-post
+            v-for="post in posts"
+            :key="post.id"
+            :title="post.title"
+        ></blog-post>
+    </div> -->
+
+    <!-- 単一のルート要素 -->
+    <!-- <div id="blog-post-demo">
+        <blog-post
+            v-for="post in posts"
+            :key="post.id"
+            :post="post"
+        ></blog-post>
+    </div> -->
+
+    <!-- 子コンポーネントのイベントを購読する -->
+    <!-- <div id="blog-posts-events-demo">
+        <div :style="{ fontSize: postFontSize + 'em'}">
+            <blog-post
+            v-for="post in posts"
+            :key="post.id"
+            :post="post"
+            @enlarge-text="postFontSize += 0.1"
+            ></blog-post>
+        </div>
+    </div> -->
+
+    <!-- イベントと値を送出する -->
+    <!-- <div id="blog-posts-events-demo">
+        <div :style="{ fontSize: postFontSize + 'em'}">
+            <blog-post
+            v-for="post in posts"
+            :key="post.id"
+            :post="post"
+            @enlarge-text="postFontSize += $event"
+            ></blog-post>
+        </div>
+    </div> -->
+
+    <!-- イベントと値を送出する イベントハンドラがメソッドの場合 -->
+    <!-- <div id="blog-posts-events-demo">
+        <div :style="{ fontSize: postFontSize + 'em'}">
+            <blog-post
+            v-for="post in posts"
+            :key="post.id"
+            :post="post"
+            @enlarge-text="onEnlargeText"
+            ></blog-post>
+        </div>
+    </div> -->
+
+    <!-- コンポーネントで v-model を使う -->
+    <div id="custom-event">
+        <!-- <input v-model="searchText"> -->
+        <!-- <input
+            :value="searchText"
+            @input="searchText = $event.target.value"
+        > -->
+        <custom-input v-model="searchText"></custom-input>
+        {{ searchText }}
     </div>
 
     <script src="https://cdn.jsdelivr.net/npm/vue@2.6.14/dist/vue.js"></script>
-    <script>
-        Vue.component('button-counter', {
-            data: function () {
-                return {
-                    count: 0
-                }
-            },
-            // data は関数でなければならない
-            // data: {
-            //     count: 0
-            // },
-            template: '<button v-on:click="count++">You clicked me {{ count }} times.</button>'
-        });
-
-        var app = new Vue({
-            el: "#app"
-        });
-    </script>
+    <!-- <script src="componentBasics03_1.js"></script> -->
+    <!-- <script src="componentBasics03_2.js"></script> -->
+    <!-- <script src="componentBasics03_3.js"></script> -->
+    <!-- <script src="componentBasics03_4.js"></script> -->
+    <script src="componentBasics03_5.js"></script>
 </body>
 
 </html>
