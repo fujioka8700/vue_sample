@@ -12,7 +12,11 @@
 <body>
     <div class="container">
         <div id="app">
-            <bootstrap-data-input data-date-picker="activated"></bootstrap-data-input>
+            <bootstrap-data-input
+                type="text"
+                data-date-picker="activated"
+                class="date-picker-theme-dark"
+            ></bootstrap-data-input>
         </div>
     </div>
 
@@ -21,7 +25,7 @@
     <script src="https://cdn.jsdelivr.net/npm/vue@2.6.14/dist/vue.js"></script>
     <script>
         Vue.component('bootstrap-data-input', {
-            template: '<input>'
+            template: '<input type="date" class="form-control">'
         })
 
         var app = new Vue({
