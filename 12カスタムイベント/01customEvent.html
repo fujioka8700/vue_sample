@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>カスタムイベント 命名規則</title>
+</head>
+
+<body>
+    <div id="app">
+        <welcome v-on:welcome-button="sayHi"></welcome>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.6.14/dist/vue.js"></script>
+    <script>
+        Vue.component('welcome', {
+            template: `
+            <button v-on:click="$emit('welcome-button')">
+                Click me to be welcomed
+            </button>`
+        })
+
+        var app = new Vue({
+            el: "#app",
+            methods: {
+                sayHi: function() {
+                    alert('Hi')
+                }
+            },
+        });
+    </script>
+</body>
+
+</html>
