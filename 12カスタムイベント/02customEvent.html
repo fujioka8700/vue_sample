@@ -14,14 +14,28 @@
         <base-checkbox v-model="lovinVue"></base-checkbox>
     </div> -->
 
+    <!-- <div id="app">
+        <base-checkbox v-model="lovinVue"></base-checkbox>
+    </div> -->
+
     <!-- コンポーネントにネイティブイベントをバインディング -->
+    <!-- <div id="app">
+        <base-input label="名前" v-model="value" @focus.native="onFocus"></base-input>
+        <base-input label="名前" v-model="value" @focus="onFocus"></base-input>
+    </div> -->
+
+    <!-- .sync 修飾子 -->
     <div id="app">
-        <base-input></base-input>
+        <text-document
+            :title="doc.title"
+            @update:title="doc.title = $event"
+        ></text-document>
     </div>
 
     <script src="https://cdn.jsdelivr.net/npm/vue@2.6.14/dist/vue.js"></script>
     <!-- <script src="02_01customEvent.js"></script> -->
-    <script src="02_02customEvent.js"></script>
+    <!-- <script src="02_02customEvent.js"></script> -->
+    <script src="02_03customEvent.js"></script>
 </body>
 
 </html>
