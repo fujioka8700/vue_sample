@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>フォーム - @submit</title>
+    <link rel="stylesheet" href="public/css/style.css">
+    <link rel="stylesheet" href="public/css/study.css">
+</head>
+
+<body>
+    <h1 class="text-4xl">フォーム - @submit</h1>
+    <div id="app" v-cloak>
+        <div v-if="submitted">
+            <h2 class="text-2xl">フォームが送信されました。</h2>
+            <dl>
+                <dt>満足度:</dt>
+                <dd>{{ '⭐️'.repeat(rating) }}</dd>
+                <dt>コメント:</dt>
+                <dd>{{ comment }}</dd>
+            </dl>
+            <button type="button" @click.prevent="clearForm"
+                class="bg-transparent hover:bg-blue-500 text-blue-700 font-semibold hover:text-white py-2 px-4 border border-blue-500 hover:border-transparent rounded">
+                クリア
+            </button>
+        </div>
+        <form @submit.prevent="onSubmit">
+            <div class="block">
+                <label for="rating">満足度</label>
+                <select name="rating" id="rating" v-model="rating">
+                    <option value="0">No star</option>
+                    <option value="1">⭐️</option>
+                    <option value="2">⭐️⭐️</option>
+                    <option value="3">⭐️⭐️⭐️</option>
+                    <option value="4">⭐️⭐️⭐️⭐️</option>
+                    <option value="5">⭐️⭐️⭐️⭐️⭐️</option>
+                </select>
+            </div>
+
+            <div class="block">
+                <label for="comment">コメント</label>
+                <textarea class="border" v-model="comment"></textarea>
+                <p v-if="error" class="text-red-400">{{ error }}</p>
+            </div>
+
+            <button type="submit"
+                class="bg-transparent hover:bg-blue-500 text-blue-700 font-semibold hover:text-white py-2 px-4 border border-blue-500 hover:border-transparent rounded">
+                送信
+            </button>
+        </form>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.6.14/dist/vue.js"></script>
+    <script src="js/satisfaction_submit.js"></script>
+</body>
+
+</html>

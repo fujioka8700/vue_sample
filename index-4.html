@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Welcome to Vue</title>
+    <link rel="stylesheet" href="public/css/style.css">
+    <link rel="stylesheet" href="public/css/study.css">
+</head>
+
+<body>
+    <div id="app" v-cloak>
+        <div class="w-full max-w-xs">
+            <form class="bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4">
+                <div class="mb-4">
+                    <div class="block">
+                        <span class="text-gray-700">Checkboxes1</span>
+                        <div class="mt-2">
+                            <div>
+                                <label class="inline-flex items-center">
+                                    <input type="checkbox" class="form-checkbox" v-model="subject.japanese">
+                                    <span class="ml-2">国語</span>
+                                </label>
+                            </div>
+                            <div>
+                                <label class="inline-flex items-center">
+                                    <input type="checkbox" class="form-checkbox" v-model="subject.english">
+                                    <span class="ml-2">英語</span>
+                                </label>
+                            </div>
+                            <div>
+                                <label class="inline-flex items-center">
+                                    <input type="checkbox" class="form-checkbox" v-model="subject.math">
+                                    <span class="ml-2">数学</span>
+                                </label>
+                            </div>
+                        </div>
+                        <p>選択科目:
+                            <pre>{{ subject }}</pre>
+                        </p>
+
+                        <span class="text-gray-700">Checkboxes2</span>
+                        <div class="mt-2">
+                            <div>
+                                <label class="inline-flex items-center">
+                                    <input type="checkbox" class="form-checkbox" v-model="foods" value="🍕">
+                                    <span class="ml-2">Pizza</span>
+                                </label>
+                            </div>
+                            <div>
+                                <label class="inline-flex items-center">
+                                    <input type="checkbox" class="form-checkbox" v-model="foods" value="🍩">
+                                    <span class="ml-2">Donut</span>
+                                </label>
+                            </div>
+                            <div>
+                                <label class="inline-flex items-center">
+                                    <input type="checkbox" class="form-checkbox" v-model="foods" value="🍣">
+                                    <span class="ml-2">Sushi</span>
+                                </label>
+                            </div>
+                        </div>
+                        <p class="mb-4">Foods:
+                            <span v-for="food in foods">{{ food }}</span>
+                        </p>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.6.14/dist/vue.js"></script>
+    <script src="js/app4.js"></script>
+</body>
+
+</html>
