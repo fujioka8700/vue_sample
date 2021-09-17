@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>算出プロパティ</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
+    <link rel="stylesheet" href="public/css/style.css">
+    <link rel="stylesheet" href="public/css/study.css">
+</head>
+
+<body>
+    <div id="app" v-cloak>
+        <h1 class="text-4xl">算出プロパティ</h1>
+        <div class="w-full max-w-xs">
+            <label for="birthday">お誕生日は？</label>
+            <input
+                class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+                type="text" id="birthday" v-model="birthday">
+            <p v-if="age >= 0">{{ age }} 歳ですね！</p>
+            <p v-else>お誕生日を入力してください。</p>
+            <span v-if="isComputedCalled"
+            class="text-sm font-medium bg-green-100 py-1 px-2 rounded text-green-500 align-middle">Computedが呼び出されました。</span>
+        </div>
+    </div>
+
+    <script src="http://cdnjs.cloudflare.com/ajax/libs/moment.js/2.8.2/moment.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.6.14/dist/vue.js"></script>
+    <script src="js/calculated_property.js"></script>
+</body>
+
+</html>
