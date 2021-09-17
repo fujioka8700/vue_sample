@@ -5,17 +5,19 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Welcome to Vue</title>
+    <title>ファイルのアップロード</title>
     <link rel="stylesheet" href="public/css/style.css">
     <link rel="stylesheet" href="public/css/study.css">
 </head>
 
 <body>
+    <h1 class="text-4xl">ファイルのアップロード</h1>
     <div id="app" v-cloak>
         <div class="w-full max-w-xs">
             <form class="bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4">
-                
+                <input type="file" v-model="file" id="upload">
             </form>
+            <p>file:{{ file }}</p>
         </div>
     </div>
 
