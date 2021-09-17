@@ -1,3 +1,7 @@
+[v-cloak] {
+    display: none;
+}
+
 .notification {
     background: #0093E3;
     border-radius: 4px;
