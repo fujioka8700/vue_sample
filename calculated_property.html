@@ -5,20 +5,19 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ファイルプレビュー - @change</title>
+    <title>算出プロパティ</title>
     <link rel="stylesheet" href="public/css/style.css">
     <link rel="stylesheet" href="public/css/study.css">
 </head>
 
 <body>
-    <h1 class="text-4xl">ファイルプレビュー - @change</h1>
     <div id="app" v-cloak>
-        <input type="file" @change="onFileChange" accept="image/*">
-        <img :src="previewUrl" alt="">
+        <h1 class="text-4xl">算出プロパティ</h1>
+        <p>{{ message }}</p>
     </div>
 
     <script src="https://cdn.jsdelivr.net/npm/vue@2.6.14/dist/vue.js"></script>
-    <script src="js/file_preview.js"></script>
+    <script src="js/calculated_property.js"></script>
 </body>
 
 </html>
