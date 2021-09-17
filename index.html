@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Welcome to Vue</title>
+    <link rel="stylesheet" href="public/css/style.css">
+    <link rel="stylesheet" href="public/css/study.css">
+</head>
+
+<body>
+    <div id="app">
+        <h1>Welcome to Vue</h1>
+        <p class="notification" v-if="messages.count > 0">You have {{ messages.count }} messages.</p>
+        <p v-else>No messages.</p>
+
+        <i v-if="user.gender === 'male'">男</i>
+        <i v-else-if="user.gender === 'female'">女</i>
+
+        <p v-show="current === 1">1です</p>
+        <p v-show="current === 2">2です</p>
+        <p v-show="current === 3">3です</p>
+
+        <table class="table-auto border">
+            <thead>
+                <tr>
+                    <th class="border">名前</th>
+                    <th class="border">年齢</th>
+                    <th class="border">電話番号</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr v-for="framework in frameworks">
+                    <td class="border">{{ framework.name }}</td>
+                    <td class="border">{{ framework.age }}</td>
+                    <td class="border">{{ framework.profession }}</td>
+                </tr>
+            </tbody>
+        </table>
+
+        <h1>HTMLの属性にデータを埋め込む</h1>
+        <img :src="`https://catlink.biz/board/data/upfile/${gifId}.jpg`" alt="">
+
+        <p class="text-xl">メッセージ</p>
+        <p class="text-xl">ERRORメッセージ</p>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.6.14/dist/vue.js"></script>
+    <script src="js/app.js"></script>
+</body>
+
+</html>
