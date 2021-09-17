@@ -1,7 +1,8 @@
-var app = new Vue({
+const app = new Vue({
     el: '#app',
     data: {
-        birthday: '1970-03-15',
+        left: 0,
+        right: 0,
         isComputedCalled: false
     },
     methods: {
@@ -14,20 +15,10 @@ var app = new Vue({
         }
     },
     computed: {
-        age: function () {
+        total: function () {
             this.setMessage();
 
-            if (!this.birthday) {
-                return -1;
-            }
-
-            moment.locale('ja');
-            return moment().diff(this.birthday, 'years');
+            return this.left + this.right;
         }
     }
-});
-
-var birthday = document.getElementById('birthday');
-var fp = flatpickr(birthday, {
-    dateFormat: 'Y-n-j'
 });
