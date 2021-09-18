@@ -6,6 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>v-modelの復習</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
     <link rel="stylesheet" href="public/css/style.css">
     <link rel="stylesheet" href="public/css/study.css">
 </head>
@@ -13,9 +14,54 @@
 <body>
     <h1 class="text-4xl">v-modelの復習</h1>
     <div id="app" v-cloak>
-        <p>{{ a }}</p>
+        <div class="block">
+            <label for="username">ユーザー</label>
+            <input type="text" class="border" id="username" v-model="username" placeholder="田中太郎">
+            {{ username }}
+            <textarea class="border" name="" id="" cols="30" rows="10" v-model="textArea"
+                placeholder="ここに入力してください"></textarea>
+            {{ textArea }}
+        </div>
+
+        <div class="block">
+            <label for="language">言語を選択してください：</label>
+            <select v-model="language" id="language" name="language">
+                <option value="en">英語</option>
+                <option value="de">ドイツ語</option>
+                <option value="fr">フランス語</option>
+                <option value="ja">日本語</option>
+                <option value="zh">中国語</option>
+            </select>
+            <p>value: {{ language }} </p>
+        </div>
+
+        <div class="block">
+            <input type="checkbox" name="pc" id="mac" v-model="pc.mac"><label for="mac">Mac</label>
+            <input type="checkbox" name="pc" id="windows" v-model="pc.windows"><label for="windows">Windows</label>
+            <input type="checkbox" name="pc" id="linux" v-model="pc.linux"><label for="linux">Linux</label>
+            <pre>{{ pc }}</pre>
+        </div>
+
+        <div class="block">
+            <input type="radio" v-model="lang" name="" id="php" value="php"><label for="php">PHP</label>
+            <input type="radio" v-model="lang" name="" id="html" value="html"><label for="html">PHP</label>
+        </div>
+
+        <div class="block">
+            <input v-model="filePath" type="file" name="" id="">
+            {{ filePath }}
+        </div>
+
+        <div class="block">
+            <input v-model="birthday" class="flatpickr boder" type="text" placeholder="Select Date.." readonly="readonly">
+            {{ birthday }}
+            <input type="range" name="" id="" min="0" max="10" v-model="range">
+            {{ '〇'.repeat(range) }}({{ range }})
+        </div>
+
     </div>
 
+    <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
     <script src="https://cdn.jsdelivr.net/npm/vue@2.6.14/dist/vue.js"></script>
     <script src="js/vmodel.js"></script>
 </body>
