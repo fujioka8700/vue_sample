@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>classとstyle</title>
+    <link rel="stylesheet" href="public/css/style.css">
+    <link rel="stylesheet" href="public/css/study.css">
+</head>
+
+<body>
+    <h1 class="text-4xl">classとstyle</h1>
+    <div id="app" v-cloak>
+        <p>{{ message }}</p>
+        <!-- <p v-for="message in messages" :class="{ 'text-red-500' : message.error }">{{ message.text }}</p> -->
+        <p v-if="progress >= 50" class="text-red-500">{{ messages[1].text }}</p>
+
+        <div class="relative pt-1">
+            <div class="overflow-hidden h-5 mb-4 text-xs flex rounded bg-red-200">
+                <div :style="{ width: progress + '%' }"
+                    class="shadow-none flex flex-col text-center whitespace-nowrap text-white justify-center bg-red-500">
+                </div>
+            </div>
+        </div>
+        <a :href="`${url}`">yahoo</a>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.6.14/dist/vue.js"></script>
+    <script src="js/class-style.js"></script>
+</body>
+
+</html>

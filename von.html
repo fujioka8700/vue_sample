@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>イベントとmethods</title>
+    <link rel="stylesheet" href="public/css/style.css">
+    <link rel="stylesheet" href="public/css/study.css">
+</head>
+
+<body>
+    <h1 class="text-4xl">イベントとmethods</h1>
+    <div id="app" v-cloak>
+        <button @click="yobirinFunc" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-full">
+            呼び鈴
+        </button>
+        <p class="text-yellow-500" v-if="yobirin">呼び鈴が鳴りました。</p>
+
+        <div class="block">
+            <div class="bg-white">
+                <nav class="flex flex-col sm:flex-row">
+                    <button class="text-gray-600 py-4 px-6 block hover:text-blue-500"
+                        :class="{ 'focus:outline-none text-blue-500 border-b-2 font-medium border-blue-500' : selectedTabNumber === 1 }"
+                        @click="pushTabNumber(1)">
+                        Tab 1
+                    </button><button class="text-gray-600 py-4 px-6 block hover:text-blue-500 focus:outline-none"
+                        :class="{ 'focus:outline-none text-blue-500 border-b-2 font-medium border-blue-500' : selectedTabNumber === 2 }"
+                        @click="pushTabNumber(2)">
+                        Tab 2
+                    </button><button class="text-gray-600 py-4 px-6 block hover:text-blue-500 focus:outline-none"
+                        :class="{ 'focus:outline-none text-blue-500 border-b-2 font-medium border-blue-500' : selectedTabNumber === 3 }"
+                        @click="pushTabNumber(3)">
+                        Tab 3
+                    </button><button class="text-gray-600 py-4 px-6 block hover:text-blue-500 focus:outline-none"
+                        :class="{ 'focus:outline-none text-blue-500 border-b-2 font-medium border-blue-500' : selectedTabNumber === 4 }"
+                        @click="pushTabNumber(4)">
+                        Tab 4
+                    </button>
+                </nav>
+            </div>
+            <p>タブは {{ selectedTabNumber }} です。</p>
+        </div>
+
+        <div class="block">
+            <form action="" method="get" @submit.prevent="onSubmit">
+                <input type="submit">
+            </form>
+            <div v-if="submitted">
+                <p>送信されました</p>
+                <input type="button" value="クリア" @click="onClear">
+            </div>
+        </div>
+
+        <div class="block">
+            <input type="file" @change="onFileChange">
+            <img :src="previewUrl" alt="" v-if="previewUrl">
+        </div>
+    </div><!-- #app -->
+
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.6.14/dist/vue.js"></script>
+    <script src="js/von.js"></script>
+</body>
+
+</html>
