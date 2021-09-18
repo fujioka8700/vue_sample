@@ -13,7 +13,19 @@
 <body>
     <h1 class="text-4xl">算出プロパティ</h1>
     <div id="app" v-cloak>
-        {{ a }}
+        <input class="border" type="number" name="" id="" v-model.number="left">
+        <input class="border" type="number" name="" id="" v-model.number="right">
+        <p>合計:{{ total }}</p>
+        <a target="_blank" v-bind:href="link">{{ link }}</a>
+    
+        <input type="button" @click="link = 'https://google.com/'" value="リンクをグーグルに変更" />
+        <input type="button" @click="link = 'https://yahoo.co.jp/'" value="リンクをヤフーに変更" />
+
+        <!-- <input type="text" name="" id="" v-model="comment">
+        <p>{{ comment }}</p> -->
+
+        <input class="border" type="text" name="" id="" v-on:input="comment = $event.target.value" v-bind:value="comment">
+        <input type="text" name="" id="" v-model="comment" class="border">
     </div><!-- #app -->
 
     <script src="https://cdn.jsdelivr.net/npm/vue@2.6.14/dist/vue.js"></script>
