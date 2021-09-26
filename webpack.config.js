@@ -11,13 +11,21 @@ module.exports = {
     },
 
     module: {
-        rules: [{
+        rules: [
+            {
                 test: /\.css$/,
                 use: ['vue-style-loader', 'css-loader'],
             },
             {
                 test: /\.scss/,
-                use: ['style-loader', 'css-loader', 'sass-loader'],
+                use: [
+                    'style-loader',
+                    {
+                        loader: 'css-loader',
+                        options: { url: false }
+                    },
+                    'sass-loader'
+                ],
             },
             {
                 test: /\.vue$/,
@@ -40,8 +48,10 @@ module.exports = {
     // import文で .ts ファイルを解決するため
     resolve: {
         alias: {
+            // エイリアス作成し、完全ビルド。
             vue$: 'vue/dist/vue.esm.js',
         },
+        // 拡張子の省略
         extensions: ['*', '.js', '.vue', '.json'],
     },
 
@@ -52,7 +62,11 @@ module.exports = {
     target: ['web', 'es5'],
 
     devServer: {
-        static: "dist",
-        open: true
+        static: {
+            directory: `${__dirname}/dist`,
+        },
+        port: 8080,
+        hot: true,
+        open: false,
     }
 }
