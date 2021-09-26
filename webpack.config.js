@@ -17,7 +17,7 @@ module.exports = {
             },
             {
                 test: /\.scss/,
-                use: ['style-loader', 'css-loader', 'sass-loader'],
+                use: ['vue-style-loader', 'css-loader', 'sass-loader'],
             },
             {
                 test: /\.vue$/,
@@ -40,8 +40,10 @@ module.exports = {
     // import文で .ts ファイルを解決するため
     resolve: {
         alias: {
+            // エイリアス作成し、完全ビルド。
             vue$: 'vue/dist/vue.esm.js',
         },
+        // 拡張子の省略
         extensions: ['*', '.js', '.vue', '.json'],
     },
 
