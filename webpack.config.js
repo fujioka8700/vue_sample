@@ -17,7 +17,7 @@ module.exports = {
             },
             {
                 test: /\.scss/,
-                use: ['vue-style-loader', 'css-loader', 'sass-loader'],
+                use: ['style-loader', 'css-loader', 'sass-loader'],
             },
             {
                 test: /\.vue$/,
@@ -54,7 +54,10 @@ module.exports = {
     target: ['web', 'es5'],
 
     devServer: {
-        static: "dist",
-        open: true
+        static: {
+            directory: `${__dirname}/dist`,
+        },
+        hot: true,
+        open: false
     }
 }
