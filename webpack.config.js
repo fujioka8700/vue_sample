@@ -11,13 +11,21 @@ module.exports = {
     },
 
     module: {
-        rules: [{
+        rules: [
+            {
                 test: /\.css$/,
                 use: ['vue-style-loader', 'css-loader'],
             },
             {
                 test: /\.scss/,
-                use: ['style-loader', 'css-loader', 'sass-loader'],
+                use: [
+                    'style-loader',
+                    {
+                        loader: 'css-loader',
+                        options: { url: false }
+                    },
+                    'sass-loader'
+                ],
             },
             {
                 test: /\.vue$/,
@@ -57,7 +65,8 @@ module.exports = {
         static: {
             directory: `${__dirname}/dist`,
         },
+        port: 8080,
         hot: true,
-        open: false
+        open: false,
     }
 }
