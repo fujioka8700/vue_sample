@@ -28,7 +28,6 @@
     "webpack-dev-server": "^4.2.1"
   },
   "dependencies": {
-    "@mojs/core": "^1.1.0",
     "vue": "^2.6.14"
   }
 }
