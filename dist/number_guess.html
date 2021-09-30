@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Vue Component Tutorial</title>
+    <style>
+        [v-cloak] {
+            display: none;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="app2">
+        <number-guess
+            @start="onStart"
+            @collect="onCollect"
+            @higher="onHigher"
+            @lower="onLower"
+        ></number-guess>
+        <p>{{ message }}</p>
+        <p>残り：{{ tryCountLeft }}回</p>
+    </div>
+
+    <script src="./bundle.js"></script>
+</body>
+
+</html>
