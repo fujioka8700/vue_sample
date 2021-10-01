@@ -14,7 +14,13 @@ module.exports = {
         rules: [
             {
                 test: /\.css$/,
-                use: ['vue-style-loader', 'css-loader'],
+                use: ['vue-style-loader',
+                    {
+                        loader: 'css-loader',
+                        options: { url: false }
+                    },
+                    'postcss-loader'
+                ],
             },
             {
                 test: /\.scss/,

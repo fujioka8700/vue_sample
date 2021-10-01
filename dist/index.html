@@ -13,8 +13,25 @@
 
 <body>
   <div id="app">
-    <h1>hello</h1>
-    <p>{{ message }}</p>
+    <hello name='world'></hello>
+    <div>
+      <a href="https://yahoo.co.jp">yahoo</a>
+      <anchor-link
+        href="https://yahoo.co.jp"
+        text="Yahoo"
+        :new-tab="true"
+      ></anchor-link>
+      <anchor-link
+        href="https://qiita.com/"
+        text="Qiita"
+      ></anchor-link>
+      <event-buttons
+        @event-one="onEventOne"
+        @event-two="onEventTwo"
+        @event-three="onEventTree"
+      ></event-buttons>
+      <pre v-for="argument in arguments">{{ argument }}</pre>
+    </div>
   </div>
 
   <script src="./bundle.js"></script>
