@@ -11,16 +11,19 @@
     </style>
 </head>
 
-<body>
-    <div id="app2">
-        <number-guess
-            @start="onStart"
-            @collect="onCollect"
-            @higher="onHigher"
-            @lower="onLower"
-        ></number-guess>
-        <p>{{ message }}</p>
-        <p>残り：{{ tryCountLeft }}回</p>
+<body class="bg-green-100 h-screen flex flex-col justify-center">
+    <div id="app2" v-cloak>
+        <div class="p-6 max-w-sm mx-auto bg-white rounded-sm shadow-md items-center space-x-4">
+            <number-guess
+                @start="onStart"
+                @collect="onCollect"
+                @higher="onHigher"
+                @lower="onLower"
+                @lose="onLose"
+            ></number-guess>
+            <p class="mt-4 text-center">{{ message }}</p>
+            <p class="text-center">残り：{{ tryCountLeft }}回</p>
+        </div>
     </div>
 
     <script src="./bundle.js"></script>

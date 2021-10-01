@@ -3,7 +3,8 @@ import Hello from './components/Hello.vue'
 import AnchorLink from './components/AnchorLink.vue'
 import EventButtons from './components/EventButtons.vue'
 import NumberGuess from './components/NumberGuess.vue'
-import "./style.scss"
+import './style.scss'
+import './style.css'
 
 // new Vue({
 //   el: '#app',
@@ -31,7 +32,7 @@ import "./style.scss"
 //   }
 // })
 
-new Vue({
+let app2 = new Vue({
   el: '#app2',
   data: {
     message: 'スタートボタンを押してください',
@@ -48,11 +49,17 @@ new Vue({
     onCollect() {
       this.message = '当たり！ 🎉'
     },
-    onHigher() {
+    onHigher(tryCountLeft) {
       this.message = 'もっと大きいです ️👆'
+      this.tryCountLeft = tryCountLeft
     },
-    onLower() {
+    onLower(tryCountLeft) {
       this.message = 'もっと小さいです 👇'
+      this.tryCountLeft = tryCountLeft
+    },
+    onLose(tryCountLeft) {
+      this.message = 'ゲームオーバー'
+      this.tryCountLeft = tryCountLeft
     }
   }
 })
