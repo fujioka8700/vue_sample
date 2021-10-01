@@ -17,10 +17,10 @@
             </ul>
         </div>
         <div class="panel-body" v-show="activeTab === 1">
-            <p>hello</p>
+            <MarkdownEditor @input="onInput" :value="content"/>
         </div>
         <div class="panel-body" v-show="activeTab === 2">
-            <p>bye</p>
+            <MarkdownPreview :text="content"/>
         </div>
         <div class="panel-footer">
             <div class="text-right">
@@ -31,10 +31,23 @@
 </template>
 
 <script>
+    import MarkdownEditor from './MarkdownEditor.vue'
+    import MarkdownPreview from './MarkdownPreview.vue'
+
     export default {
+        components: {
+            MarkdownEditor,
+            MarkdownPreview
+        },
         data() {
             return {
-                activeTab: 1
+                activeTab: 1,
+                content: ''
+            }
+        },
+        methods: {
+            onInput(text) {
+                this.content = text
             }
         }
     }
