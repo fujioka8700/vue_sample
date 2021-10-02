@@ -8,24 +8,24 @@ import Card from './components/Card.vue'
 import './style.scss'
 import './style.css'
 
-let app4 = new Vue({
-  el: '#app4',
-  components: {
-    Card
-  },
-  methods: {
-    onClick() {
-      alert('Clicked !')
-    }
-  }
-})
-
-// let app3 = new Vue({
-//   el: '#app3',
+// let app4 = new Vue({
+//   el: '#app4',
 //   components: {
-//     MarkdownPanel
+//     Card
+//   },
+//   methods: {
+//     onClick() {
+//       alert('Clicked !')
+//     }
 //   }
 // })
+
+let app3 = new Vue({
+  el: '#app3',
+  components: {
+    MarkdownPanel
+  },
+})
 
 // let app2 = new Vue({
 //   el: '#app2',

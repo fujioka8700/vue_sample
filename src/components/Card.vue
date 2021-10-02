@@ -19,3 +19,11 @@
         </div>
     </div>
 </template>
+
+<script>
+export default {
+    created() {
+        console.log('Vueインスタンス完成');
+    }
+}
+</script>
