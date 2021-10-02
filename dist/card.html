@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Vue Component Tutorial</title>
+    <link rel="stylesheet" href="https://unpkg.com/spectre.css/dist/spectre.min.css">
+    <style>
+        [v-cloak] {
+            display: none;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="app4" v-cloak>
+        <div class="container">
+            <div class="columns">
+                <div class="column col-6 col-md-8 col-mx-auto">
+                    <card>
+                        <img slot="image" src="https://source.unsplash.com/collection/190727/1600x900">
+                        <span slot="title">Microsoft</span>
+                        <span slot="subtitle">Software and hardware</span>
+                        <p slot="body">Empower every person and every organization on the planet to achieve more.</p>
+                        <button slot="button" class="btn btn-primary" @click="onClick">Click me</button>
+                    </card>
+                </div>
+            </div>
+        </div>
+    </div><!-- /#app4  -->
+
+    <script src="./bundle.js"></script>
+</body>
+
+</html>

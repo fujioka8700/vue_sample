@@ -4,15 +4,28 @@ import AnchorLink from './components/AnchorLink.vue'
 import EventButtons from './components/EventButtons.vue'
 import NumberGuess from './components/NumberGuess.vue'
 import MarkdownPanel from './components/MarkdownPanel.vue'
+import Card from './components/Card.vue'
 import './style.scss'
 import './style.css'
 
-let app3 = new Vue({
-  el: '#app3',
+let app4 = new Vue({
+  el: '#app4',
   components: {
-    MarkdownPanel
+    Card
+  },
+  methods: {
+    onClick() {
+      alert('Clicked !')
+    }
   }
 })
+
+// let app3 = new Vue({
+//   el: '#app3',
+//   components: {
+//     MarkdownPanel
+//   }
+// })
 
 // let app2 = new Vue({
 //   el: '#app2',
